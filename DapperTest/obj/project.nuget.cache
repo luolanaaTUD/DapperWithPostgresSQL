@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "JXHuwafyHUInmcknw1QogZYqAqwlIuP0YzKs4xhMrP9S94E+Dmwqjchq0Al08tJ1e8m08Kma1Sl2HydZQUOGSw==",
+  "success": true,
+  "projectFilePath": "/Users/wluo/Projects/DapperTest/DapperTest/DapperTest.csproj",
+  "expectedPackageFiles": [
+    "/Users/wluo/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/microsoft.aspnetcore.openapi/7.0.0/microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/nettopologysuite/2.5.0/nettopologysuite.2.5.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/nettopologysuite.features/2.1.0/nettopologysuite.features.2.1.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/nettopologysuite.io.geojson4stj/3.0.0/nettopologysuite.io.geojson4stj.3.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/nettopologysuite.io.postgis/2.1.0/nettopologysuite.io.postgis.2.1.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/npgsql/7.0.0/npgsql.7.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/npgsql.nettopologysuite/7.0.0/npgsql.nettopologysuite.7.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
+    "/Users/wluo/.nuget/packages/system.text.json/6.0.3/system.text.json.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
