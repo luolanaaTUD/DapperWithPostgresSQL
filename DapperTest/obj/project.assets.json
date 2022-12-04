@@ -965,11 +965,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/wluo/Projects/DapperTest/DapperTest/DapperTest.csproj",
+      "projectUniqueName": "/Users/wluo/Projects/DapperWithPostgresSQL/DapperTest/DapperTest.csproj",
       "projectName": "DapperTest",
-      "projectPath": "/Users/wluo/Projects/DapperTest/DapperTest/DapperTest.csproj",
+      "projectPath": "/Users/wluo/Projects/DapperWithPostgresSQL/DapperTest/DapperTest.csproj",
       "packagesPath": "/Users/wluo/.nuget/packages/",
-      "outputPath": "/Users/wluo/Projects/DapperTest/DapperTest/obj/",
+      "outputPath": "/Users/wluo/Projects/DapperWithPostgresSQL/DapperTest/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/wluo/.nuget/NuGet/NuGet.Config"

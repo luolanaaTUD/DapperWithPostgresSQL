@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using DapperTest.Dtos;
 using DapperTest.Models;
 using DapperTest.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Writers;
 using Npgsql;
-using static System.Reflection.Metadata.BlobBuilder;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace DapperTest.Controllers
 {
@@ -50,6 +49,15 @@ namespace DapperTest.Controllers
                 return NotFound();
 
             return Ok(block);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBycBlock([FromBody]CreateNycBlockDto blockDto)
+        {
+            var created = await _repository.Add(blockDto);
+
+            return CreatedAtRoute("BlockById", new { id = created.Id }, created); // "Route name points to GetItem route.
+            //return Ok(created);
         }
     }
 }

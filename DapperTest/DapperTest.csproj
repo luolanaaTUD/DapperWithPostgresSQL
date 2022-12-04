@@ -24,9 +24,11 @@
     <None Remove="Models\" />
     <None Remove="Repositories\" />
     <None Remove="NetTopologySuite.IO.GeoJSON4STJ" />
+    <None Remove="Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
 </Project>

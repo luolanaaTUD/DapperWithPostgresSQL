@@ -1,5 +1,7 @@
 ﻿using System;
 using DapperTest.Models;
+using DapperTest.Dtos;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DapperTest.Repositories
 {
@@ -9,7 +11,7 @@ namespace DapperTest.Repositories
 
         Task<NycBlock?> GetItem(int id);
 
-        Task Add(NycBlock block);
+        Task<NycBlock> Add(CreateNycBlockDto block);
 
         Task Update(int id, NycBlock block);
 

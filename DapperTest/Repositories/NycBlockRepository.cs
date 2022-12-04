@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using Dapper;
+using DapperTest.Dtos;
 using DapperTest.Models;
 
 namespace DapperTest.Repositories
@@ -19,9 +21,39 @@ namespace DapperTest.Repositories
             _connection = context.CreateConnection();
 		}
 
-        public Task Add(NycBlock block)
+
+        /// <summary>
+        /// Create a model and insert into database.
+        /// </summary>
+        /// <param name="block"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<NycBlock> Add(CreateNycBlockDto block)
         {
-            throw new NotImplementedException();
+            var sql = $@"INSERT INTO {_tableName} (fid,blkid,popn_total,popn_white,popn_black,boroname )
+                         VALUES (@fid,@blkid,@popn_total,@popn_white,@popn_black,@boroname )";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("fid", block.Id, DbType.Int32);
+            parameters.Add("blkid", block.Blkid, DbType.String);
+            parameters.Add("boroname", block.Boroname, DbType.String);
+            parameters.Add("popn_total", block.Popn_total, DbType.Int32);
+            parameters.Add("popn_white", block.Popn_white, DbType.Int32);
+            parameters.Add("popn_black", block.Popn_black, DbType.Int32);
+
+            await _connection.ExecuteAsync(sql, parameters);
+
+            NycBlock nycBlock = new NycBlock
+            {
+                Id = block.Id,// this id should be auto generated instead of hard coding.
+                Blkid = block.Blkid,
+                Boroname = block.Boroname,
+                Popn_total = block.Popn_total,
+                Popn_white = block.Popn_white,
+                Popn_black = block.Popn_black
+            };
+
+            return nycBlock;
         }
 
         public Task Delete(int id)
@@ -30,30 +62,17 @@ namespace DapperTest.Repositories
         }
 
         public async Task<NycBlock?> GetItem(int id)
-        {
+        {   
             var sql = @$"SELECT blkid,fid AS id,popn_total,popn_white,popn_black,boroname ,geom FROM {_tableName}
                          Where fid = @id";
 
-            //using var connection = _context.CreateConnection();
-
-            try
-            {
-                var block = await _connection.QuerySingleAsync<NycBlock>(sql, new { id });
-                return block;
-            }
-            catch
-            {
-                return null;
-            }
-
-            
+            var block = await _connection.QuerySingleOrDefaultAsync<NycBlock>(sql, new { id }); //for class, default is null
+            return block; 
         }
 
         public async Task<IEnumerable<NycBlock>> GetAll()
         {
             var sql = $"SELECT blkid,fid AS id,popn_total,popn_white,popn_black,boroname ,geom FROM {_tableName} LIMIT 30";
-
-            //using var connection = _context.CreateConnection();
 
             var blocks = await _connection.QueryAsync<NycBlock>(sql);
             return blocks;
@@ -74,6 +93,8 @@ namespace DapperTest.Repositories
             var value = await _connection.ExecuteScalarAsync<string>(sql);
             return value;
         }
+
+        
     }
 }
 

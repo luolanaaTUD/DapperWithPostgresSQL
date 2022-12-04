@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JXHuwafyHUInmcknw1QogZYqAqwlIuP0YzKs4xhMrP9S94E+Dmwqjchq0Al08tJ1e8m08Kma1Sl2HydZQUOGSw==",
+  "dgSpecHash": "wn5jsiPfYTlyK7EGXDFZNqAEqU4CKBp1VIO4HC33scLHH9jrSV1UXfHMyEzCBjSh6VM7wxPBHvOtgQ76iM1fVQ==",
   "success": true,
-  "projectFilePath": "/Users/wluo/Projects/DapperTest/DapperTest/DapperTest.csproj",
+  "projectFilePath": "/Users/wluo/Projects/DapperWithPostgresSQL/DapperTest/DapperTest.csproj",
   "expectedPackageFiles": [
     "/Users/wluo/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
     "/Users/wluo/.nuget/packages/microsoft.aspnetcore.openapi/7.0.0/microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
