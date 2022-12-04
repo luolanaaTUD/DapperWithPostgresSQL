@@ -13,7 +13,7 @@ namespace DapperTest.Repositories
 
         Task<NycBlock> Add(CreateNycBlockDto block);
 
-        Task Update(int id, NycBlock block);
+        Task Update(int id, UpdateNycBlockDto block);
 
         Task Delete(int id);
 

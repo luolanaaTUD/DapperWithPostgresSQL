@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 using NetTopologySuite.Geometries;
 
@@ -6,6 +7,7 @@ namespace DapperTest.Models
 {
 	public class NycBlock
 	{
+        [Key]
         public int Id { get; set; }
 
         public string? Blkid { get; set; }

@@ -32,7 +32,7 @@ namespace DapperTest.Controllers
 
 
         [HttpGet("")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllBlocks()
         {
             var blocks = await _repository.GetAll();
             if (blocks is null)
@@ -42,7 +42,7 @@ namespace DapperTest.Controllers
         }
 
         [HttpGet("{id}", Name ="BlockById")]
-        public async Task<IActionResult> GetItem(int id)
+        public async Task<IActionResult> GetBlockByID(int id)
         {
             var block = await _repository.GetItem(id);
             if (block is null)
@@ -52,12 +52,36 @@ namespace DapperTest.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBycBlock([FromBody]CreateNycBlockDto blockDto)
+        public async Task<IActionResult> CreateBlock([FromBody]CreateNycBlockDto blockDto)
         {
             var created = await _repository.Add(blockDto);
 
             return CreatedAtRoute("BlockById", new { id = created.Id }, created); // "Route name points to GetItem route.
             //return Ok(created);
+        }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBlock(int id, [FromBody] UpdateNycBlockDto blockDto)
+        {
+            var dbBlock = await _repository.GetItem(id);
+            if (dbBlock is null)
+                return NotFound();
+
+            await _repository.Update(id, blockDto);
+            return NoContent();
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBlock(int id)
+        {
+            var dbBlock = await _repository.GetItem(id);
+            if (dbBlock is null)
+                return NotFound();
+
+            await _repository.Delete(id);
+            return NoContent();
         }
     }
 }

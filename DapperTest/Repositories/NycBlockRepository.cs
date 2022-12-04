@@ -56,10 +56,24 @@ namespace DapperTest.Repositories
             return nycBlock;
         }
 
-        public Task Delete(int id)
+        public async Task Update(int id, UpdateNycBlockDto block)
         {
-            throw new NotImplementedException();
+            var sql = @$"UPDATE {_tableName}
+                         SET blkid = @blkid,popn_total = @popn_total,popn_white = @popn_white,popn_black = @popn_black,boroname = @boroname
+                         WHERE fid = @id";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("id", id, DbType.Int32);
+            parameters.Add("blkid", block.Blkid, DbType.String);
+            parameters.Add("boroname", block.Boroname, DbType.String);
+            parameters.Add("popn_total", block.Popn_total, DbType.Int32);
+            parameters.Add("popn_white", block.Popn_white, DbType.Int32);
+            parameters.Add("popn_black", block.Popn_black, DbType.Int32);
+
+            await _connection.ExecuteAsync(sql, parameters);
         }
+
+        
 
         public async Task<NycBlock?> GetItem(int id)
         {   
@@ -78,12 +92,14 @@ namespace DapperTest.Repositories
             return blocks;
         }
 
-        
 
-        public Task Update(int id, NycBlock block)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var sql = $@"DELETE FROM {_tableName} WHERE fid = @id";
+
+            await _connection.ExecuteAsync(sql, new { id });
         }
+
 
         public async Task<string> GetVersion()
         {
